@@ -234,7 +234,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &214126426
 BoxCollider2D:
@@ -385,10 +385,11 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   platform: {fileID: 3051472625651224269, guid: 8ff619b26bbbebd419e0c446476f2d89, type: 3}
+  buildCooldown: 0.5
   grid: {fileID: 878829880}
   acceleration: 2
   speed: 4
-  drag: 0.5
+  drag: 1.5
   jumpForce: 6.5
   depth: 0.6
 --- !u!1 &655716615
