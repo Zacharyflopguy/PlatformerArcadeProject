@@ -27,6 +27,7 @@ public abstract class Character : MonoBehaviour
     }
     public void levelComplete()
     {
+        mainControl.nextStage();
         other.spawn();
         despawn();
     }
