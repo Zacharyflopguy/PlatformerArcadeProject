@@ -18,16 +18,24 @@ public class SlimeController : Character
     bool rising;
     public float powShiftSpeed;
     int jumpCooldown;
+    public float depth;
     // Start is called before the first frame update
     void Start()
     {
         despawn();
+        mainControl = master.GetComponent<MasterControl>();
+        other = otherCharacter.GetComponent<Character>();
         slime = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        RaycastHit2D groundCheck = Physics2D.Raycast(transform.position, Vector2.down, depth, 256);
+        if (groundCheck.collider != null)
+        {
+            groundCheck.collider.gameObject.GetComponent<Platform>().slimed();
+        }
         bool jumpInput = jump.ReadValue<float>() == 1;
         if (dirLock == false)
         {

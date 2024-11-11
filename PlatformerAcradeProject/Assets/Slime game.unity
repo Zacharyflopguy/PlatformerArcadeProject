@@ -131,6 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 194692437}
+  - component: {fileID: 194692438}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -153,6 +154,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &194692438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194692436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebff4493e903e1247addec4607b03012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &214126422
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,10 +337,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4019eb2bce8c31845a6e73a594d3db12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  other: {fileID: 0}
   otherCharacter: {fileID: 791303047}
   spawnPoint: {fileID: 440730446}
   despawnPoint: {fileID: 829742578}
   master: {fileID: 194692436}
+  mainControl: {fileID: 0}
   moveX:
     m_Name: Move X
     m_Type: 0
@@ -2026,10 +2041,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fa8c9edcf132b4c9a6169e4c2f8199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  other: {fileID: 0}
   otherCharacter: {fileID: 214126422}
   spawnPoint: {fileID: 440730446}
   despawnPoint: {fileID: 829742578}
   master: {fileID: 194692436}
+  mainControl: {fileID: 0}
   x:
     m_Name: X
     m_Type: 0
@@ -2092,6 +2109,7 @@ MonoBehaviour:
   cross: {fileID: 1084693684}
   maxForce: 10
   powShiftSpeed: 0.002
+  depth: 0.6
 --- !u!212 &791303049
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2893,6 +2911,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1362058988}
   - component: {fileID: 1362058987}
+  - component: {fileID: 1362058989}
   m_Layer: 0
   m_Name: Death Plane
   m_TagString: Untagged
@@ -2960,6 +2979,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1362058989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362058986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7e5e0406d28e2478d000498be8313d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1469514194
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,6 +3002,7 @@ GameObject:
   - component: {fileID: 1469514197}
   - component: {fileID: 1469514196}
   - component: {fileID: 1469514195}
+  - component: {fileID: 1469514198}
   m_Layer: 0
   m_Name: goal
   m_TagString: Untagged
@@ -3062,7 +3094,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.023230553, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3073,7 +3105,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.859518, y: 1}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &1469514197
 Transform:
@@ -3084,12 +3116,24 @@ Transform:
   m_GameObject: {fileID: 1469514194}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.96, y: -0.51, z: -0.0025126731}
+  m_LocalPosition: {x: 8.5, y: -0.5, z: -0.0025126731}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1469514198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469514194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9388d9c2003d9c74e9ccd358b493f4dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1888553017
 PrefabInstance:
   m_ObjectHideFlags: 0

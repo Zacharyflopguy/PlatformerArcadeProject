@@ -34,6 +34,8 @@ public class BuilderController : Character
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+        mainControl = master.GetComponent<MasterControl>();
+        other = otherCharacter.GetComponent<Character>();
         spawn();
     }
 
@@ -43,7 +45,7 @@ public class BuilderController : Character
         float move = moveX.ReadValue<float>();
         bool jumpInput = jump.ReadValue<float>() == 1;
         bool buildInput = build.ReadValue<float>() > 0;
-        RaycastHit2D groundCheck = Physics2D.Raycast(transform.position, Vector2.down, depth, 8);
+        RaycastHit2D groundCheck = Physics2D.Raycast(transform.position, Vector2.down, depth, 264);
 
         //Set grounded to true if we hit the ground
         grounded = groundCheck.collider != null;
@@ -86,12 +88,12 @@ public class BuilderController : Character
         //Make sure build cooldown has passed and we are pressing the build button
         if (!(Time.time > buildCdTime)) return;
         if (!buildInput) return;
-        
+        if (!mainControl.useMaterial()) return;
         if (grounded)
         {
             RaycastHit2D checkPos =
                     Physics2D.Raycast(grid.CellToWorld(grid.WorldToCell(transform.position + new Vector3(0, -1.0f, 0))) +
-                    new Vector3(grid.cellSize.x / 2, grid.cellSize.y / 2, 0), Vector2.up, 0.6f, 72);
+                    new Vector3(grid.cellSize.x / 2, grid.cellSize.y / 2, 0), Vector2.up, 0.6f, 328);
             if (checkPos.collider == null)
             {
                 Instantiate(platform,
@@ -104,7 +106,7 @@ public class BuilderController : Character
         {
             RaycastHit2D checkPos = Physics2D.Raycast(grid.CellToWorld(grid.WorldToCell(transform.position +
                     new Vector3(grid.cellSize.x * facing, -1.0f, 0))) +
-                    new Vector3(grid.cellSize.x / 2, grid.cellSize.y / 2, 0), Vector2.up, 0.6f, 72);
+                    new Vector3(grid.cellSize.x / 2, grid.cellSize.y / 2, 0), Vector2.up, 0.6f, 328);
             if (checkPos.collider == null)
             {
                 Instantiate(platform,
@@ -124,7 +126,6 @@ public class BuilderController : Character
         build.Enable();
         jump.Enable();
         transform.position = spawnPoint.transform.position;
-        Debug.Log(spawnPoint.transform.position);
     }
     public override void despawn()
     {
