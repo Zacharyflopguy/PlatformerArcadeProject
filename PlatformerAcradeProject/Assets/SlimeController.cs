@@ -4,7 +4,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SlimeController : MonoBehaviour
+public class SlimeController : Character
 {
     public InputAction x;
     public InputAction y;
@@ -21,9 +21,7 @@ public class SlimeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        x.Enable();
-        y.Enable();
-        jump.Enable();
+        despawn();
         slime = GetComponent<Rigidbody2D>();
     }
 
@@ -71,5 +69,19 @@ public class SlimeController : MonoBehaviour
             }
         }
         jumpCooldown--;
+    }
+    public override void spawn()
+    {
+        x.Enable();
+        y.Enable();
+        jump.Enable();
+        transform.position = spawnPoint.transform.position;
+    }
+    public override void despawn()
+    {
+        x.Disable();
+        y.Disable();
+        jump.Disable();
+        transform.position = despawnPoint.transform.position;
     }
 }

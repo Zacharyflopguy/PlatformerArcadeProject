@@ -8,8 +8,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 using UnityEngine.UIElements.Experimental;
+using UnityEngine.VFX;
 
-public class BuilderController : MonoBehaviour
+public class BuilderController : Character
 {
     public InputAction moveX;
     public InputAction build;
@@ -28,76 +29,55 @@ public class BuilderController : MonoBehaviour
     public float depth;
     private float buildCdTime = 0;
     private int facing = 1;
-    public bool active;
     private bool grounded = false;
     // Start is called before the first frame update
     void Start()
     {
-        moveX.Enable();
-        build.Enable();
-        jump.Enable();
         rigidbody2d = GetComponent<Rigidbody2D>();
-
-        //REMOVE ONCE SLIME IMPLEMENTED
-        GetComponent<Renderer>().enabled = false;
-        active = false;    
+        spawn();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!active)
+        float move = moveX.ReadValue<float>();
+        bool jumpInput = jump.ReadValue<float>() == 1;
+        bool buildInput = build.ReadValue<float>() > 0;
+        RaycastHit2D groundCheck = Physics2D.Raycast(transform.position, Vector2.down, depth, 8);
+
+        //Set grounded to true if we hit the ground
+        grounded = groundCheck.collider != null;
+
+        rigidbody2d.AddForce(Vector2.right * (move * acceleration));
+        if (grounded && jumpInput)
         {
-            float move = moveX.ReadValue<float>();
-            bool jumpInput = jump.ReadValue<float>() == 1;
-            bool buildInput = build.ReadValue<float>() > 0;
-            RaycastHit2D groundCheck = Physics2D.Raycast(transform.position, Vector2.down, depth, 8);
-
-            //Set grounded to true if we hit the ground
-            grounded = groundCheck.collider != null;
-
-            rigidbody2d.AddForce(Vector2.right * (move * acceleration));
-            if (grounded && jumpInput)
-            {
-                rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpForce);
-                //rigidbody2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            }
-            if (move == 0)
-            {
-                /*
-                if (rigidbody2d.velocity.x > 0)
-                {
-                    rigidbody2d.AddForce(Vector2.left * (drag * acceleration));
-                }else if(rigidbody2d.velocity.x < 0)
-                {
-                    rigidbody2d.AddForce(Vector2.right * (drag * acceleration));
-                }
-                */
-
-                //Lerp velocity to zero accounting for drag
-                float newVelocityX = Mathf.Lerp(rigidbody2d.velocity.x, 0, drag * Time.deltaTime);
-                rigidbody2d.velocity = new Vector2(newVelocityX, rigidbody2d.velocity.y);
-
-            }
-            else if (move > 0)
-            {
-                facing = 1;
-            }
-            else
-            {
-                facing = -1;
-            }
-            if (rigidbody2d.velocity.x > speed)
-            {
-                rigidbody2d.velocity = new Vector2(speed, rigidbody2d.velocity.y);
-            }
-            if (rigidbody2d.velocity.x < speed * -1)
-            {
-                rigidbody2d.velocity = new Vector2(speed * -1, rigidbody2d.velocity.y);
-            }
-
-            HandleBuild(buildInput, groundCheck);
+          rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpForce);
+          //rigidbody2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+        if (move == 0)
+        {
+            //Lerp velocity to zero accounting for drag
+            float newVelocityX = Mathf.Lerp(rigidbody2d.velocity.x, 0, drag * Time.deltaTime);
+            rigidbody2d.velocity = new Vector2(newVelocityX, rigidbody2d.velocity.y);
+        }
+        else if (move > 0)
+        {
+            facing = 1;
+        }
+        else
+        {
+            facing = -1;
+        }
+        if (rigidbody2d.velocity.x > speed)
+        {
+            rigidbody2d.velocity = new Vector2(speed, rigidbody2d.velocity.y);
+        }
+        if (rigidbody2d.velocity.x < speed * -1)
+        {
+            rigidbody2d.velocity = new Vector2(speed * -1, rigidbody2d.velocity.y);
+        }
+
+        HandleBuild(buildInput, groundCheck);
     }
 
     
@@ -111,7 +91,7 @@ public class BuilderController : MonoBehaviour
         {
             RaycastHit2D checkPos =
                     Physics2D.Raycast(grid.CellToWorld(grid.WorldToCell(transform.position + new Vector3(0, -1.0f, 0))) +
-                    new Vector3(grid.cellSize.x / 2, grid.cellSize.y / 2, 0), Vector2.up, 0.6f, 8);
+                    new Vector3(grid.cellSize.x / 2, grid.cellSize.y / 2, 0), Vector2.up, 0.6f, 72);
             if (checkPos.collider == null)
             {
                 Instantiate(platform,
@@ -124,7 +104,7 @@ public class BuilderController : MonoBehaviour
         {
             RaycastHit2D checkPos = Physics2D.Raycast(grid.CellToWorld(grid.WorldToCell(transform.position +
                     new Vector3(grid.cellSize.x * facing, -1.0f, 0))) +
-                    new Vector3(grid.cellSize.x / 2, grid.cellSize.y / 2, 0), Vector2.up, 0.6f, 8);
+                    new Vector3(grid.cellSize.x / 2, grid.cellSize.y / 2, 0), Vector2.up, 0.6f, 72);
             if (checkPos.collider == null)
             {
                 Instantiate(platform,
@@ -138,7 +118,21 @@ public class BuilderController : MonoBehaviour
         //Set new build cooldown time
         buildCdTime = Time.time + buildCooldown;
     }
-    
+    public override void spawn()
+    {
+        moveX.Enable();
+        build.Enable();
+        jump.Enable();
+        transform.position = spawnPoint.transform.position;
+        Debug.Log(spawnPoint.transform.position);
+    }
+    public override void despawn()
+    {
+        moveX.Disable();
+        build.Disable();
+        jump.Disable();
+        transform.position = despawnPoint.transform.position;
+    }
 }//Class End
 
 
