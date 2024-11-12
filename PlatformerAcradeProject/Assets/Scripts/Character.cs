@@ -11,9 +11,14 @@ public abstract class Character : MonoBehaviour
     public GameObject master;
     public MasterControl mainControl;
     // Start is called before the first frame update
+    
+    void Awake()
+    {
+        master = GameObject.Find("Main");
+    }
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame

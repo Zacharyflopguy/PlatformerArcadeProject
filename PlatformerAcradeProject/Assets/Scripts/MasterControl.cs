@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class MasterControl : MonoBehaviour
 {
-    int score;
+    public int score;
     public int lives;
     public int materials;
     int stage = 1;
@@ -23,6 +23,7 @@ public class MasterControl : MonoBehaviour
     public AudioClip death;
     public AudioClip point;
     public AudioClip crossed;
+    private float timer = 500f;
 
 
     [Header("UI Elements")]
@@ -31,11 +32,26 @@ public class MasterControl : MonoBehaviour
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI scoreText;
     public Canvas canvas;
-
+    public TextMeshProUGUI timerText;
+    
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(canvas);
+        
+        //Handle multiple Mains on loop around
+        GameObject mainObject = GameObject.Find("Main");
+
+        if (mainObject != null && mainObject != gameObject)
+        {
+            Destroy(mainObject);
+        }
+        
+        GameObject obj = GameObject.Find("Canvas");
+        if (obj != null && obj != canvas.gameObject)
+        {
+            Destroy(obj);
+        }
     }
 
     // Start is called before the first frame update
@@ -50,8 +66,15 @@ public class MasterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         StageText.text = "Stage: " + realStage;
         scoreText.text = "Score: " + score;
+        
+        //Timer Logic
+        timer -= Time.deltaTime;
+        Mathf.Clamp(timer, 0, 999999999);
+        timerText.text = "Time: " + timer.ToString("F2");
+        
         MaterialsText.text = materials.ToString();
         healthText.text = lives.ToString();
     }
@@ -75,6 +98,11 @@ public class MasterControl : MonoBehaviour
         if(lives > 0)
         {
             character.spawn();
+        }
+
+        if (lives <= 0)
+        {
+            SceneManager.LoadScene("Leaderboard");
         }
     }
     public void nextStage()
@@ -116,13 +144,13 @@ public class MasterControl : MonoBehaviour
         switch (map%3)
         {
             case 0:
-                SceneManager.LoadScene("Stage3");
+                SceneManager.LoadScene("Slime game");
                 break;
             case 1:
                 SceneManager.LoadScene("Stage2");
                 break;
             case 2:
-                SceneManager.LoadScene("Slime game");
+                SceneManager.LoadScene("Stage3");
                 break;
         }
     }

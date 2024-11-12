@@ -43,15 +43,22 @@ public class LeaderboardDisplay : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI deathText;
     [SerializeField] private string[] deathMessages;
+    
+    private GameObject mainControl;
 
     private void Awake()
     {
         leaderboard = new LeaderboardManager();
         leaderboard.Awake();
+        
+        mainControl = GameObject.Find("Main");
     }
 
     private void Start()
     {
+        //Set score to score lmao
+        GameManager.instance.score = mainControl.GetComponent<MasterControl>().score;
+        
         //Play Sound
         loseSound.Play();
 
