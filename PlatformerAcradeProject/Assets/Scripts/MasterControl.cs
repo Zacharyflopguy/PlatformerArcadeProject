@@ -23,10 +23,12 @@ public class MasterControl : MonoBehaviour
     public TextMeshProUGUI MaterialsText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI scoreText;
+    public Canvas canvas;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(canvas);
     }
 
     // Start is called before the first frame update
