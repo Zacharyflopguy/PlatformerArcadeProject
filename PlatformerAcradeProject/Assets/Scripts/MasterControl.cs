@@ -98,13 +98,13 @@ public class MasterControl : MonoBehaviour
         switch (map%3)
         {
             case 0:
-                SceneManager.LoadScene("Slime game");
-                break;
-            case 1:
                 SceneManager.LoadScene("Stage3");
                 break;
-            case 2:
+            case 1:
                 SceneManager.LoadScene("Stage2");
+                break;
+            case 2:
+                SceneManager.LoadScene("Slime game");
                 break;
         }
     }
