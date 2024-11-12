@@ -39,12 +39,16 @@ public class BuilderController : Character
     private float buildCdTime = 0;
     private int facing = 1;
     private bool grounded = false;
+    public AudioClip jumpSound;
+    public AudioClip buildSound;
+    public AudioSource sound;
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         mainControl = master.GetComponent<MasterControl>();
         other = otherCharacter.GetComponent<Character>();
+        sound = GetComponent<AudioSource>();
         spawn();
     }
 
@@ -66,7 +70,11 @@ public class BuilderController : Character
         rigidbody2d.AddForce(Vector2.right * (move * acceleration));
         if (grounded && jumpInput)
         {
-          rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpForce);
+            if (sound.isPlaying == false)
+            {
+                sound.PlayOneShot(jumpSound);
+            }
+            rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpForce);
         }
         if (move == 0)
         {
@@ -107,6 +115,7 @@ public class BuilderController : Character
         if (!(Time.time > buildCdTime)) return;
         if (!buildInput) return;
         if (mainControl.materials <= 0) return;
+        sound.PlayOneShot(buildSound);
         if (grounded)
         {
             RaycastHit2D checkPos = Physics2D.Raycast(grid.CellToWorld(grid.WorldToCell(transform.position +

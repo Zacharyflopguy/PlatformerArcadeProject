@@ -403,6 +403,9 @@ MonoBehaviour:
   drag: 1.5
   jumpForce: 6.5
   raycastDepth: 0.6
+  jumpSound: {fileID: 8300000, guid: 46aec85f05686ab43901b1628acee427, type: 3}
+  buildSound: {fileID: 8300000, guid: f97a3dc6cc6ea274aaca557af91156d7, type: 3}
+  sound: {fileID: 0}
 --- !u!111 &214126428
 Animation:
   m_ObjectHideFlags: 0
@@ -451,7 +454,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2753,6 +2756,8 @@ MonoBehaviour:
   powShiftSpeed: 0.002
   depth: 0.6
   animator: {fileID: 791303053}
+  jumpSound: {fileID: 8300000, guid: 46aec85f05686ab43901b1628acee427, type: 3}
+  sound: {fileID: 0}
 --- !u!212 &791303049
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2926,7 +2931,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5004,6 +5009,7 @@ MonoBehaviour:
   death: {fileID: 8300000, guid: 4a4c0f808be162c4d96413e037d89d99, type: 3}
   point: {fileID: 8300000, guid: b76793e0d9ea82f43b100dffb1e200e1, type: 3}
   crossed: {fileID: 8300000, guid: 6c0195589110fba40b33b9c71658c19b, type: 3}
+  timerTick: {fileID: 8300000, guid: daf7011c62674ab40a10495e41224724, type: 3}
   escape:
     m_Name: Escape
     m_Type: 0
