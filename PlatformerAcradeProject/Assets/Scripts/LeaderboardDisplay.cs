@@ -31,15 +31,17 @@ public class LeaderboardDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI char3;
 
     public InputActionAsset playerInput;
-    private InputAction submitAction;  // Submit Character
-    private InputAction charUpAction;  // Go up in the alphabet
-    private InputAction charDownAction;  // Go down in the alphabet
-    private InputAction backAction; //Exit application
+    public InputAction submitAction;  // Submit Character
+    public InputAction charUpAction;  // Go up in the alphabet
+    public InputAction charDownAction;  // Go down in the alphabet
+    //public InputAction backAction; //Exit application
     private System.Action<InputAction.CallbackContext> startGameHandler;  // Stored reference to the handler
 
     private string playerInitials = "AAA"; // Stores player initials
     private int currentCharIndex = 0;      // Tracks the current character being edited (0 = char1, 1 = char2, 2 = char3)
     private char[] currentInitials = { 'A', 'A', 'A' };  // Stores the current character values
+    private int characterConfirmCooldown;
+    private int charChangeCooldown;
 
     [SerializeField] private TextMeshProUGUI deathText;
     [SerializeField] private string[] deathMessages;
@@ -65,10 +67,10 @@ public class LeaderboardDisplay : MonoBehaviour
         StartCoroutine(LoseControl());
         
         //Configure START button
-        submitAction = playerInput.FindAction("Enter");
+        //submitAction = playerInput.FindAction("Enter");
         submitAction.Enable();
-        backAction = playerInput.FindAction("Back");
-        backAction.Enable();
+        //backAction = playerInput.FindAction("Back");
+        //backAction.Enable();
     }
 
     private void CreateHighscoreEntryTransform(LeaderboardEntry highscoreEntry, Transform container, List<Transform> transformList)
@@ -99,14 +101,14 @@ public class LeaderboardDisplay : MonoBehaviour
     private void SetupInputActions()
     {
         //submitAction = playerInput.FindAction("Enter");
-        charUpAction = playerInput.FindAction("Up");
-        charDownAction = playerInput.FindAction("Down");
+       // charUpAction = playerInput.FindAction("Up");
+        //charDownAction = playerInput.FindAction("Down");
 
         // Bind actions
-        startGameHandler = ctx => ConfirmCharacter();  // Store the handler reference
-        submitAction.performed += startGameHandler;
-        charUpAction.performed += _ => NavigateCharacter(-1);   // Go to the next character
-        charDownAction.performed += _ => NavigateCharacter(1); // Go to the previous character
+        //startGameHandler = ctx => ConfirmCharacter();  // Store the handler reference
+        //submitAction.performed += startGameHandler;
+        //charUpAction.performed += _ => NavigateCharacter(-1);   // Go to the next character
+        //charDownAction.performed += _ => NavigateCharacter(1); // Go to the previous character
 
         //submitAction.Enable();
         charUpAction.Enable();
@@ -135,7 +137,7 @@ public class LeaderboardDisplay : MonoBehaviour
         else
         {
             // Once all characters are confirmed, save the initials
-            submitAction.performed -= startGameHandler;
+            //submitAction.performed -= startGameHandler;
             playerInitials = new string(currentInitials);
             SavePlayerInitials();
         }
@@ -177,10 +179,10 @@ public class LeaderboardDisplay : MonoBehaviour
 
     private IEnumerator LoseControl()
     {
-        deathText.text = deathMessages[UnityEngine.Random.Range(0, deathMessages.Length)];
+        //deathText.text = deathMessages[UnityEngine.Random.Range(0, deathMessages.Length)];
         
-        yield return new WaitForSeconds(0.5f);
-        yield return new WaitUntil(() => submitAction.triggered);
+        //yield return new WaitForSeconds(0.5f);
+        //yield return new WaitUntil(() => submitAction.triggered);
         
         youLosePanel.gameObject.SetActive(false);
         
@@ -212,6 +214,7 @@ public class LeaderboardDisplay : MonoBehaviour
             
             StartCoroutine(ListenForEndActions());
         }
+        yield return null;
     }
 
     private IEnumerator ListenForEndActions()
@@ -220,16 +223,47 @@ public class LeaderboardDisplay : MonoBehaviour
         
         while (true)
         {
-            if (submitAction.IsPressed())
+            if (submitAction.ReadValue<float>() == 1)
             {
                 GameManager.instance.DestroyThyself();
                 SceneManager.LoadScene("Slime game");
             }
-            if (backAction.IsPressed())
+            /*if (backAction.IsPressed())
             {
                 Application.Quit();
-            }
+            }*/
             yield return null;
+        }
+    }
+    private void Update()
+    {
+        if (characterConfirmCooldown == 0)
+        {
+            if (submitAction.ReadValue<float>() == 1)
+            {
+                ConfirmCharacter();
+                characterConfirmCooldown = 100;
+            }
+        }
+        else
+        {
+            characterConfirmCooldown--;
+        }
+        if (charChangeCooldown == 0)
+        {
+            if (charUpAction.ReadValue<float>() == 1)
+            {
+                NavigateCharacter(-1);
+            }
+            if (charDownAction.ReadValue<float>() == 1)
+            {
+                NavigateCharacter(1);
+            }
+            charChangeCooldown = 30;
+        }
+        else
+        {
+            charChangeCooldown--;
         }
     }
 }

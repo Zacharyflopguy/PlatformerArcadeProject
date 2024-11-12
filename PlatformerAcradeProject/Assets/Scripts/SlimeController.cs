@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using UnityEditor.Compilation;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,8 +21,6 @@ public class SlimeController : Character
     public float powShiftSpeed;
     int jumpCooldown;
     public float depth;
-    private bool onPlatform = false;
-    
     [Header("Animation Settings")] 
     public Animator animator;
     
@@ -91,6 +90,7 @@ public class SlimeController : Character
         x.Enable();
         y.Enable();
         jump.Enable();
+        dirLock = false;
         transform.position = spawnPoint.transform.position;
     }
     public override void despawn()
@@ -98,11 +98,7 @@ public class SlimeController : Character
         x.Disable();
         y.Disable();
         jump.Disable();
+        dirLock = false;
         transform.position = despawnPoint.transform.position;
-    }
-    
-    public void OnCollisionStay2D(Collision2D other)
-    {
-        onPlatform = other.gameObject.CompareTag("Platform");
     }
 }

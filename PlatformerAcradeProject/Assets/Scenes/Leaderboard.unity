@@ -758,10 +758,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151527412}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b25a1a14ee2ce2f418f90068389fa0d7, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1999,7 +1999,82 @@ MonoBehaviour:
   char2: {fileID: 1628252089}
   char3: {fileID: 1386661037}
   playerInput: {fileID: -944628639613478452, guid: a3f482c9703f66348b2c1eb16161e16e, type: 3}
-  deathText: {fileID: 1467993260}
+  submitAction:
+    m_Name: Submit
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9270ed0e-15f0-43a8-872e-48270fdcb1f9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 767c73df-9258-45ff-8459-695011fc23fc
+      m_Path: <Keyboard>/enter
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Submit
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 7b7b26b1-6ce0-416a-b44c-3055ae3b1868
+      m_Path: <Gamepad>/buttonSouth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Submit
+      m_Flags: 0
+    m_Flags: 0
+  charUpAction:
+    m_Name: Char Up
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7516dd7e-a5ce-4a1a-ab57-9ffb7ad828ca
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: c3d5adbc-3368-4dea-9630-b0f9b63d2c48
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Char Up
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 891c8e30-698d-47a7-8007-8db7b21b9349
+      m_Path: <Gamepad>/leftStick/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Char Up
+      m_Flags: 0
+    m_Flags: 0
+  charDownAction:
+    m_Name: Char Down
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: bd717f05-b5ba-46d2-a8f0-4e3d8865e7a5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4f3436fe-0ae2-4fda-94af-ede0ed3ffaf1
+      m_Path: <Keyboard>/downArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Char Down
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 5ec1151a-6965-45a0-95ed-871c9f04dd55
+      m_Path: <Gamepad>/leftStick/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Char Down
+      m_Flags: 0
+    m_Flags: 0
+  deathText: {fileID: 0}
   deathMessages:
   - R.I.P.
   - At least you tried...
@@ -2435,7 +2510,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0d8437e2736508b4c83709d50fd67db3, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
