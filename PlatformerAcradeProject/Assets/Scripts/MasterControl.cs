@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
@@ -17,6 +18,8 @@ public class MasterControl : MonoBehaviour
     private int realStage = 1;
     int map = 0;
     int soundLoops;
+    int soundTimer;
+    GameObject music;
     public GameObject bonus;
     public Grid grid;
     AudioSource sound;
@@ -24,6 +27,7 @@ public class MasterControl : MonoBehaviour
     public AudioClip point;
     public AudioClip crossed;
     private float timer = 500f;
+    public InputAction escape;
 
 
     [Header("UI Elements")]
@@ -41,7 +45,7 @@ public class MasterControl : MonoBehaviour
         
         //Handle multiple Mains on loop around
         GameObject mainObject = GameObject.Find("Main");
-
+        music = GameObject.Find("Music");
         if (mainObject != null && mainObject != gameObject)
         {
             Destroy(mainObject);
@@ -58,6 +62,7 @@ public class MasterControl : MonoBehaviour
     void Start()
     {
         sound = GetComponent<AudioSource>();
+        escape.Enable();
         lives = 3;
         score = 0;
         materials = 5;
@@ -66,6 +71,23 @@ public class MasterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(escape.ReadValue<float>() == 1)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+        if (soundLoops > 0)
+        {
+            if (soundTimer == 0)
+            {
+                sound.PlayOneShot(point);
+                soundTimer = 12;
+                soundLoops--;
+            }
+            else
+            {
+                soundTimer--;
+            }
+        }
         sound = GetComponent<AudioSource>();
         if (sound == null)
         {
@@ -87,8 +109,8 @@ public class MasterControl : MonoBehaviour
     public void addScore(int points)
     {
         score += points;
-        soundLoops = points / 200;
-        Thread playPointSound = new Thread(playScoreSound);
+        soundLoops = (points / 200)+1;
+        soundTimer = 12;
         if(extraLives * 70000 + 30000 <= score)
         {
             lives++;
@@ -98,7 +120,9 @@ public class MasterControl : MonoBehaviour
     public void loseLife(Character character)
     {
         sound.PlayOneShot(death);
+        music.GetComponent<MusicController>().stopMusic();
         Thread.Sleep(3213);
+        music.GetComponent<MusicController>().startMusic();
         lives--;
         if(lives > 0)
         {
@@ -113,7 +137,9 @@ public class MasterControl : MonoBehaviour
     public void nextStage()
     {
         sound.PlayOneShot(crossed);
+        music.GetComponent<MusicController>().stopMusic();
         Thread.Sleep(1306);
+        music.GetComponent<MusicController>().startMusic();
         stage++;
         addScore(2000);
         
@@ -164,13 +190,5 @@ public class MasterControl : MonoBehaviour
         GameObject item = Instantiate(bonus, grid.CellToWorld(
             grid.WorldToCell(new Vector3(Random.Range(-9.0f, 9.0f), Random.Range(-5.0f, 5.0f), 0))), Quaternion.identity);
         item.GetComponent<Bonus>().main = this.gameObject;
-    }
-    void playScoreSound()
-    {
-        for (int i = 0; i <= soundLoops; i++)
-        {
-            sound.PlayOneShot(point);
-            Thread.Sleep(340);
-        }
     }
 }
