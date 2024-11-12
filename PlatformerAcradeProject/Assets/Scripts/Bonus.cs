@@ -37,10 +37,29 @@ public class Bonus : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         GameObject obj = col.gameObject;
-        if(obj.GetComponent<Character>().findChild(obj) is SlimeController == slimed)
+        try
         {
-            main.GetComponent<MasterControl>().addScore((type + 1) * 100);
+            if (obj.GetComponent<Character>().findChild(obj) is SlimeController == slimed)
+            {
+                main.GetComponent<MasterControl>().addScore((type + 1) * 100);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                if (slimed)
+                {
+                    obj.GetComponent<BuilderController>().die();
+                }
+                else
+                {
+                    Destroy(this.gameObject);
+                }
+            }
+        }
+        catch
+        {
             Destroy(this.gameObject);
+            main.GetComponent<MasterControl>().spawnBonus();
         }
     }
 }

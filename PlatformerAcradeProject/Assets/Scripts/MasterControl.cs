@@ -12,8 +12,8 @@ public class MasterControl : MonoBehaviour
     int extraLives = 0;
     private int realStage = 1;
     int map = 0;
-    public GameObject goal;
-    public GameObject spawn;
+    public GameObject bonus;
+    public Grid grid;
 
     [Header("UI Elements")]
     public TextMeshProUGUI StageText;
@@ -72,14 +72,25 @@ public class MasterControl : MonoBehaviour
             {
                 materials = 2;
             }
-            Vector3 temp = spawn.transform.position;
-            spawn.transform.position = goal.transform.position;
-            goal.transform.position = temp;
+        }
+        else
+        {
+            if(stage == 8)
+            {
+                spawnBonus();
+            }
         }
     }
     public void nextLevel()
     {
         map++;
         stage = 1;
+        //switch scene
+    }
+    public void spawnBonus()
+    {
+        GameObject item = Instantiate(bonus, grid.CellToWorld(
+            grid.WorldToCell(new Vector3(Random.Range(-9.0f, 9.0f), Random.Range(-5.0f, 5.0f), 0))), Quaternion.identity);
+        item.GetComponent<Bonus>().main = this.gameObject;
     }
 }
