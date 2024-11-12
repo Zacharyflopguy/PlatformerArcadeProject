@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class MasterControl : MonoBehaviour
 {
@@ -19,6 +22,12 @@ public class MasterControl : MonoBehaviour
     public TextMeshProUGUI StageText;
     public TextMeshProUGUI MaterialsText;
     public TextMeshProUGUI healthText;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,7 +94,19 @@ public class MasterControl : MonoBehaviour
     {
         map++;
         stage = 1;
-        //switch scene
+        
+        switch (map%3)
+        {
+            case 0:
+                SceneManager.LoadScene("Slime game");
+                break;
+            case 1:
+                SceneManager.LoadScene("Stage3");
+                break;
+            case 2:
+                SceneManager.LoadScene("Stage2");
+                break;
+        }
     }
     public void spawnBonus()
     {
