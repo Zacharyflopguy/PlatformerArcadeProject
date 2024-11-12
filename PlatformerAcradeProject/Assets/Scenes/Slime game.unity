@@ -385,8 +385,8 @@ MonoBehaviour:
       m_Action: Move X
       m_Flags: 8
     - m_Name: 
-      m_Id: 4f19341c-5ed0-44d6-9c11-986945fe2b84
-      m_Path: <Joystick>/stick/x
+      m_Id: 28c2d52a-ab3d-4321-b6ef-8d0234709da0
+      m_Path: <Gamepad>/leftStick/x
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2567,6 +2567,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: X
       m_Flags: 0
+    - m_Name: 
+      m_Id: a1b2dad2-a3ba-4575-85b3-4e352db93fd4
+      m_Path: <Gamepad>/leftStick/x
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: X
+      m_Flags: 0
     m_Flags: 0
   y:
     m_Name: Y
@@ -2579,6 +2587,14 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 19cf46d9-7bb4-4815-afad-6b61be6d5d55
       m_Path: <Mouse>/position/y
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Y
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 370ef546-0a7f-405f-bee3-43f9ca103d95
+      m_Path: <Gamepad>/leftStick/y
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -3841,7 +3857,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4f420dd328fc8264a8c65b63fffa7556, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0b7f05c097027a49bdc8a0934e84870, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4120,7 +4136,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.9956274, y: 4.9087625}
+    - - {x: 1.0254965, y: -0.48946062}
+      - {x: 0.9956274, y: 4.9087625}
       - {x: -0.7428999, y: 4.9081206}
       - {x: -0.92357206, y: -2.3113012}
       - {x: -6.956023, y: -2.3180432}

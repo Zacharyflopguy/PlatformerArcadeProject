@@ -1051,7 +1051,7 @@ MonoBehaviour:
       m_Flags: 8
     - m_Name: 
       m_Id: 4f19341c-5ed0-44d6-9c11-986945fe2b84
-      m_Path: <Joystick>/stick/x
+      m_Path: <Gamepad>/leftStick/x
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2780,6 +2780,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: X
       m_Flags: 0
+    - m_Name: 
+      m_Id: 2ce73f1b-93b7-42d3-95c1-3ba13e7b7b7b
+      m_Path: <Gamepad>/leftStick/x
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: X
+      m_Flags: 0
     m_Flags: 0
   y:
     m_Name: Y
@@ -2792,6 +2800,14 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 19cf46d9-7bb4-4815-afad-6b61be6d5d55
       m_Path: <Mouse>/position/y
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Y
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 4809ec25-6258-47f4-9424-cced3f2cb02f
+      m_Path: <Gamepad>/leftStick/y
       m_Interactions: 
       m_Processors: 
       m_Groups: 
