@@ -22,6 +22,7 @@ public class MasterControl : MonoBehaviour
     public TextMeshProUGUI StageText;
     public TextMeshProUGUI MaterialsText;
     public TextMeshProUGUI healthText;
+    public TextMeshProUGUI scoreText;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class MasterControl : MonoBehaviour
     void Update()
     {
         StageText.text = "Stage: " + realStage;
+        scoreText.text = "Score: " + score;
         MaterialsText.text = materials.ToString();
         healthText.text = lives.ToString();
     }
