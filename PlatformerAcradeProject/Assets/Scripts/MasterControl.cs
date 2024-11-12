@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MasterControl : MonoBehaviour
 {
@@ -19,6 +21,12 @@ public class MasterControl : MonoBehaviour
     public TextMeshProUGUI StageText;
     public TextMeshProUGUI MaterialsText;
     public TextMeshProUGUI healthText;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
