@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,8 +16,14 @@ public class MasterControl : MonoBehaviour
     int extraLives = 0;
     private int realStage = 1;
     int map = 0;
+    int soundLoops;
     public GameObject bonus;
     public Grid grid;
+    AudioSource sound;
+    public AudioClip death;
+    public AudioClip point;
+    public AudioClip crossed;
+
 
     [Header("UI Elements")]
     public TextMeshProUGUI StageText;
@@ -34,6 +41,7 @@ public class MasterControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sound = GetComponent<AudioSource>();
         lives = 3;
         score = 0;
         materials = 5;
@@ -51,6 +59,8 @@ public class MasterControl : MonoBehaviour
     public void addScore(int points)
     {
         score += points;
+        soundLoops = points / 200;
+        Thread playPointSound = new Thread(playScoreSound);
         if(extraLives * 70000 + 30000 <= score)
         {
             lives++;
@@ -59,6 +69,8 @@ public class MasterControl : MonoBehaviour
     }
     public void loseLife(Character character)
     {
+        sound.PlayOneShot(death);
+        Thread.Sleep(3213);
         lives--;
         if(lives > 0)
         {
@@ -67,6 +79,8 @@ public class MasterControl : MonoBehaviour
     }
     public void nextStage()
     {
+        sound.PlayOneShot(crossed);
+        Thread.Sleep(1306);
         stage++;
         addScore(2000);
         
@@ -117,5 +131,13 @@ public class MasterControl : MonoBehaviour
         GameObject item = Instantiate(bonus, grid.CellToWorld(
             grid.WorldToCell(new Vector3(Random.Range(-9.0f, 9.0f), Random.Range(-5.0f, 5.0f), 0))), Quaternion.identity);
         item.GetComponent<Bonus>().main = this.gameObject;
+    }
+    void playScoreSound()
+    {
+        for (int i = 0; i <= soundLoops; i++)
+        {
+            sound.PlayOneShot(point);
+            Thread.Sleep(340);
+        }
     }
 }
