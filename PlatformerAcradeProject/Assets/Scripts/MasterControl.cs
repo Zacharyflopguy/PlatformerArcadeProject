@@ -9,7 +9,11 @@ public class MasterControl : MonoBehaviour
     public int lives;
     public int materials;
     int stage = 1;
-    private int realStage;
+    int extraLives = 0;
+    private int realStage = 1;
+    int map = 0;
+    public GameObject goal;
+    public GameObject spawn;
 
     [Header("UI Elements")]
     public TextMeshProUGUI StageText;
@@ -34,6 +38,11 @@ public class MasterControl : MonoBehaviour
     public void addScore(int points)
     {
         score += points;
+        if(extraLives * 70000 + 30000 <= score)
+        {
+            lives++;
+            extraLives++;
+        }
     }
     public void loseLife(Character character)
     {
@@ -46,21 +55,31 @@ public class MasterControl : MonoBehaviour
     public void nextStage()
     {
         stage++;
-        
-        //Converts the stage number to the actual stage number
-        realStage = (((stage - 1) / 2) + 1);
+        addScore(2000);
         
         if(stage % 2 == 1)
         {
-            if(stage <= 15)
+            realStage++;
+            if(stage == 17)
             {
-                materials = 5 - (stage / 4);
+                nextLevel();
+            }
+            if(stage <= 15 - ((map / 3) * 4))
+            {
+                materials = 5 - (map / 3) - (stage / 4);
             }
             else
             {
                 materials = 2;
             }
+            Vector3 temp = spawn.transform.position;
+            spawn.transform.position = goal.transform.position;
+            goal.transform.position = temp;
         }
     }
-    
+    public void nextLevel()
+    {
+        map++;
+        stage = 1;
+    }
 }
