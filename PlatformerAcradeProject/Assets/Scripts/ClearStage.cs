@@ -6,7 +6,7 @@ using UnityEngine;
 public class ClearStage : MonoBehaviour
 {
     int timer;
-    GameObject spawn;
+    public GameObject spawn;
     // Start is called before the first frame update
     void Start()
     {

@@ -1810,7 +1810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1521521979}
   - component: {fileID: 1521521978}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: NoFruit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3767,6 +3767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9388d9c2003d9c74e9ccd358b493f4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawn: {fileID: 583044461}
 --- !u!212 &2001763522
 SpriteRenderer:
   m_ObjectHideFlags: 0
