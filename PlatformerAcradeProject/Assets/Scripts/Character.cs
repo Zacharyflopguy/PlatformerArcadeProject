@@ -15,6 +15,7 @@ public abstract class Character : MonoBehaviour
     void Awake()
     {
         master = GameObject.Find("Main");
+        mainControl = master.GetComponent<MasterControl>();
     }
     void Start()
     {
@@ -28,10 +29,16 @@ public abstract class Character : MonoBehaviour
     }
     public void die()
     {
+        master = GameObject.Find("Main");
+        mainControl = master.GetComponent<MasterControl>();
+        
         mainControl.loseLife(this);
     }
     public void levelComplete()
     {
+        master = GameObject.Find("Main");
+        mainControl = master.GetComponent<MasterControl>();
+        
         mainControl.nextStage();
         other.spawn();
         despawn();
@@ -53,4 +60,6 @@ public abstract class Character : MonoBehaviour
         }
         return null;
     }
+    
+  
 }

@@ -66,6 +66,11 @@ public class MasterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        sound = GetComponent<AudioSource>();
+        if (sound == null)
+        {
+            Debug.LogError("AudioSource component is missing on this GameObject.");
+        }
         
         StageText.text = "Stage: " + realStage;
         scoreText.text = "Score: " + score;
