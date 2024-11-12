@@ -9,10 +9,12 @@ public class MasterControl : MonoBehaviour
     public int lives;
     public int materials;
     int stage = 1;
+    private int realStage;
 
     [Header("UI Elements")]
     public TextMeshProUGUI StageText;
     public TextMeshProUGUI MaterialsText;
+    public TextMeshProUGUI healthText;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +26,9 @@ public class MasterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StageText.text = "Stage: " + stage;
+        StageText.text = "Stage: " + realStage;
         MaterialsText.text = materials.ToString();
+        healthText.text = lives.ToString();
     }
 
     public void addScore(int points)
@@ -43,6 +46,10 @@ public class MasterControl : MonoBehaviour
     public void nextStage()
     {
         stage++;
+        
+        //Converts the stage number to the actual stage number
+        realStage = (((stage - 1) / 2) + 1);
+        
         if(stage % 2 == 1)
         {
             if(stage <= 15)
