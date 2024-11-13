@@ -1422,7 +1422,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 3c9664d1-7174-4f12-bd91-a812f275b6ee
-      m_Path: <Gamepad>/start
+      m_Path: <Gamepad>/buttonSouth
       m_Interactions: 
       m_Processors: 
       m_Groups: 

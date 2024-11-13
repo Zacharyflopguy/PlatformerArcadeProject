@@ -251,11 +251,11 @@ public class LeaderboardDisplay : MonoBehaviour
         }
         if (charChangeCooldown == 0)
         {
-            if (charUpAction.ReadValue<float>() == 1)
+            if (charUpAction.ReadValue<float>() >= 0)
             {
                 NavigateCharacter(-1);
             }
-            if (charDownAction.ReadValue<float>() == 1)
+            if (charDownAction.ReadValue<float>() >= 0)
             {
                 NavigateCharacter(1);
             }
