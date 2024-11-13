@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0aaaf054-bdd0-4601-9367-f3cf9c5876c7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/538f2451-805c-448d-92b7-6597860763c0.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/538f2451-805c-448d-92b7-6597860763c0.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/timer tick.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/timer tick.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/build.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Audio/build.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/build.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Audio/build.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Slime game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Slime game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Stage2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Stage2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Stage3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Stage3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuilderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuilderController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LeaderboardDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LeaderboardDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MasterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MasterControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Fonts/pixeloid.sans-bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Fonts/pixeloid.sans-bold SDF.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2om0cTaoZgi84rZRMF2EQCIkAKu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging main&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PY-242.21829.153" />
+        <option value="bundled-python-sdk-464836ebc622-b74155a9e76b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.21829.153" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0aaaf054-bdd0-4601-9367-f3cf9c5876c7" name="Changes" comment="" />
+      <created>1731459523195</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731459523195</updated>
+      <workItem from="1731459524510" duration="23000" />
+      <workItem from="1731459755480" duration="73000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

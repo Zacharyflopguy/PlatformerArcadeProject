@@ -3964,7 +3964,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -5021,6 +5021,7 @@ GameObject:
   - component: {fileID: 2088227197}
   - component: {fileID: 2088227196}
   - component: {fileID: 2088227195}
+  - component: {fileID: 2088227198}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -5162,14 +5163,6 @@ MonoBehaviour:
       m_Action: Escape
       m_Flags: 0
     - m_Name: 
-      m_Id: 891bf9cf-345f-4588-8e03-6e2b61cb9365
-      m_Path: <Gamepad>/start
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Escape
-      m_Flags: 0
-    - m_Name: 
       m_Id: 7ecef56a-6d49-4d1b-b5ea-2c374c0e65d8
       m_Path: <Keyboard>/escape
       m_Interactions: 
@@ -5184,7 +5177,7 @@ MonoBehaviour:
   scoreText: {fileID: 902619288}
   canvas: {fileID: 806873955}
   timerText: {fileID: 1150103503}
-  HighScoreText: {fileID: 0}
+  HighScoreText: {fileID: 1150103503}
 --- !u!4 &2088227197
 Transform:
   m_ObjectHideFlags: 0
@@ -5200,6 +5193,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2088227198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088227194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ffabc7bab7d7b42b5d462664551c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1160573707}
 --- !u!1001 &2106082886
 PrefabInstance:
   m_ObjectHideFlags: 0
