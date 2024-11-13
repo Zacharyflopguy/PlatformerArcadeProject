@@ -938,7 +938,7 @@ MonoBehaviour:
   animator: {fileID: 891501287}
   spriteRenderer: {fileID: 891501291}
   grid: {fileID: 109193824}
-  acceleration: 2
+  acceleration: 8
   speed: 4
   drag: 1.5
   jumpForce: 6.5

@@ -18,7 +18,7 @@ public class SlimeController : Character
     public float maxForce;
     bool rising;
     public float powShiftSpeed;
-    int jumpCooldown;
+    float jumpCooldown;
     public float depth;
     [Header("Animation Settings")] 
     public Animator animator;
@@ -53,7 +53,7 @@ public class SlimeController : Character
         {
             if (rising)
             {
-                jumpForce += powShiftSpeed;
+                jumpForce += powShiftSpeed * Time.deltaTime * 400;
                 if (jumpForce >= 1)
                 {
                     rising = false;
@@ -61,7 +61,7 @@ public class SlimeController : Character
             }
             else
             {
-                jumpForce -= powShiftSpeed;
+                jumpForce -= powShiftSpeed * Time.deltaTime * 400;
                 if(jumpForce <= 0.5f)
                 {
                     rising = true;
@@ -85,10 +85,10 @@ public class SlimeController : Character
             {
                 dirLock = true;
                 animator.SetBool("squishing", true);
-                jumpCooldown = 100;
+                jumpCooldown = 0.25f;
             }
         }
-        jumpCooldown--;
+        jumpCooldown -= Time.deltaTime;
     }
     public override void spawn()
     {

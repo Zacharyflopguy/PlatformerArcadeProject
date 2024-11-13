@@ -398,7 +398,7 @@ MonoBehaviour:
   animator: {fileID: 214126429}
   spriteRenderer: {fileID: 214126423}
   grid: {fileID: 878829880}
-  acceleration: 2
+  acceleration: 8
   speed: 4
   drag: 1.5
   jumpForce: 6.5
@@ -2692,14 +2692,6 @@ MonoBehaviour:
       m_Groups: 
       m_Action: X
       m_Flags: 0
-    - m_Name: 
-      m_Id: 80769b4c-2562-444a-bd03-393d24e7c815
-      m_Path: <Mouse>/position/x
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: X
-      m_Flags: 0
     m_Flags: 0
   y:
     m_Name: Y
@@ -2712,14 +2704,6 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 370ef546-0a7f-405f-bee3-43f9ca103d95
       m_Path: <Gamepad>/leftStick/y
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Y
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 1b40ae24-2348-4a33-b354-135de63a940c
-      m_Path: <Mouse>/position/y
       m_Interactions: 
       m_Processors: 
       m_Groups: 

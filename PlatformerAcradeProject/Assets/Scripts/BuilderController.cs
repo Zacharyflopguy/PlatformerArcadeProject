@@ -55,6 +55,10 @@ public class BuilderController : Character
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    private void FixedUpdate()
+    {
         float move = moveX.ReadValue<float>();
         bool jumpInput = jump.ReadValue<float>() == 1;
         bool buildInput = build.ReadValue<float>() > 0;
@@ -63,7 +67,7 @@ public class BuilderController : Character
 
         //Set grounded to true if we hit the ground
         grounded = groundCheckFront.collider != null || groundCheckBack.collider != null;
-        
+
         //Set jumping animation to true if we are not grounded (don't walk in air)
         animator.SetBool(Jumping, !grounded);
 
@@ -81,7 +85,7 @@ public class BuilderController : Character
             //Lerp velocity to zero accounting for drag
             float newVelocityX = Mathf.Lerp(rigidbody2d.velocity.x, 0, drag * Time.deltaTime);
             rigidbody2d.velocity = new Vector2(newVelocityX, rigidbody2d.velocity.y);
-            
+
             animator.SetBool(Walking, false);
         }
         else if (move > 0)
@@ -108,7 +112,7 @@ public class BuilderController : Character
         HandleBuild(buildInput);
     }
 
-    
+
     private void HandleBuild(bool buildInput)
     {
         //Make sure build cooldown has passed and we are pressing the build button
