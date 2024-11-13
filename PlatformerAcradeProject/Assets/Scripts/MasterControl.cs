@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Threading;
 using TMPro;
 using UnityEngine;
@@ -26,7 +27,9 @@ public class MasterControl : MonoBehaviour
     public AudioClip death;
     public AudioClip point;
     public AudioClip crossed;
-    private float timer = 500f;
+    public AudioClip timerTick;
+    private float timer = 300f;
+    int lastTime = 101;
     public InputAction escape;
 
 
@@ -37,6 +40,9 @@ public class MasterControl : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public Canvas canvas;
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI HighScoreText;
+    private LeaderboardManager leaderboard;
+    private List<LeaderboardEntry> highScores;
     
     private void Awake()
     {
@@ -66,6 +72,8 @@ public class MasterControl : MonoBehaviour
         lives = 3;
         score = 0;
         materials = 5;
+        leaderboard = new LeaderboardManager();
+        highScores = leaderboard.GetLeaderboardEntries();
     }
 
     // Update is called once per frame
@@ -96,11 +104,24 @@ public class MasterControl : MonoBehaviour
         
         StageText.text = "Stage: " + realStage;
         scoreText.text = "Score: " + score;
-        
+        HighScoreText.text = "High Score: " + highScores[0].score;
+
         //Timer Logic
         timer -= Time.deltaTime;
+        if(timer <= 0)
+        {
+            loseLife(true);
+        }
+        if (timer <= 100.0f)
+        {
+            if (((int)timer) < lastTime)
+            {
+                sound.PlayOneShot(timerTick);
+                lastTime = (int)timer;
+            }
+        }
         Mathf.Clamp(timer, 0, 999999999);
-        timerText.text = "Time: " + timer.ToString("F2");
+        timerText.text = "Time: " + timer.ToString("F0");
         
         MaterialsText.text = materials.ToString();
         healthText.text = lives.ToString();
@@ -134,6 +155,20 @@ public class MasterControl : MonoBehaviour
             SceneManager.LoadScene("Leaderboard");
         }
     }
+    public void loseLife(bool kill)
+    {
+        if (!(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Leaderboard") ||
+            SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu")))
+        {
+            if (!kill) return;
+            timer = 300;
+            sound.PlayOneShot(death);
+            music.GetComponent<MusicController>().stopMusic();
+            Thread.Sleep(3213);
+            music.GetComponent<MusicController>().startMusic();
+            SceneManager.LoadScene("Leaderboard");
+        }
+    }
     public void nextStage()
     {
         sound.PlayOneShot(crossed);
@@ -142,7 +177,8 @@ public class MasterControl : MonoBehaviour
         music.GetComponent<MusicController>().startMusic();
         stage++;
         addScore(2000);
-        
+        addScore(materials * 100);
+        materials = 0;
         if(stage % 2 == 1)
         {
             realStage++;
@@ -171,7 +207,9 @@ public class MasterControl : MonoBehaviour
     {
         map++;
         stage = 1;
-        
+        lastTime = 101;
+        addScore((((int)timer) / 10) * 100);
+        timer = 300;
         switch (map%3)
         {
             case 0:

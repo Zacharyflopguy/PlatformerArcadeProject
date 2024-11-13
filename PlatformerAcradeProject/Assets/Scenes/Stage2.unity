@@ -491,6 +491,8 @@ MonoBehaviour:
   powShiftSpeed: 0.002
   depth: 0.6
   animator: {fileID: 508310731}
+  jumpSound: {fileID: 8300000, guid: 46aec85f05686ab43901b1628acee427, type: 3}
+  sound: {fileID: 0}
 --- !u!212 &508310735
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -571,7 +573,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1090,6 +1092,9 @@ MonoBehaviour:
   drag: 1.5
   jumpForce: 6.5
   raycastDepth: 0.6
+  jumpSound: {fileID: 8300000, guid: 46aec85f05686ab43901b1628acee427, type: 3}
+  buildSound: {fileID: 8300000, guid: f97a3dc6cc6ea274aaca557af91156d7, type: 3}
+  sound: {fileID: 0}
 --- !u!50 &1080008182
 Rigidbody2D:
   serializedVersion: 4
@@ -1241,7 +1246,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

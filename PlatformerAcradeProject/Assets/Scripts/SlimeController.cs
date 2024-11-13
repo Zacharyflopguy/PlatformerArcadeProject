@@ -22,7 +22,8 @@ public class SlimeController : Character
     public float depth;
     [Header("Animation Settings")] 
     public Animator animator;
-    
+    public AudioClip jumpSound;
+    public AudioSource sound;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,7 @@ public class SlimeController : Character
         mainControl = master.GetComponent<MasterControl>();
         other = otherCharacter.GetComponent<Character>();
         slime = GetComponent<Rigidbody2D>();
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -71,6 +73,10 @@ public class SlimeController : Character
         {
             if (dirLock)
             {
+                if (sound.isPlaying == false)
+                {
+                    sound.PlayOneShot(jumpSound);
+                }
                 slime.AddForce(jumpDir * (jumpForce * maxForce), ForceMode2D.Impulse);
                 dirLock = false;
                 animator.SetBool("squishing", false);
