@@ -1,0 +1,18 @@
+Cross a bridge as both a Builder and a Slime, and don't fall into the chasm below! Pick up fruit for bonus points, but be careful, slime covered fruits will kill the builder, and fruits without slime will be dissolved by the slime. Additional extra points can be earned by clearing maps quickly or by not using all your materials.
+
+Extra Lives at 30,000 points and every 70,000 after
+
+Controls:
+	Universal:
+		Start/Select to return to main menu
+	Menus:
+		Left stick to navigate
+		X to confirm
+	Builder:
+		Left stick to move
+		X to jump
+		Right trigger to place platform
+	Slime:
+		Left stick to aim jump
+		X to lock in
+		Press X again to jump

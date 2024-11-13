@@ -28,6 +28,7 @@ public class MasterControl : MonoBehaviour
     public AudioClip point;
     public AudioClip crossed;
     public AudioClip timerTick;
+    public AudioClip extraLife;
     private float timer = 300f;
     int lastTime = 101;
     public InputAction escape;
@@ -41,8 +42,6 @@ public class MasterControl : MonoBehaviour
     public Canvas canvas;
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI HighScoreText;
-    private LeaderboardManager leaderboard;
-    private List<LeaderboardEntry> highScores;
     
     private void Awake()
     {
@@ -133,6 +132,10 @@ public class MasterControl : MonoBehaviour
         {
             lives++;
             extraLives++;
+            sound.PlayOneShot(extraLife);
+            music.GetComponent<MusicController>().stopMusic();
+            Thread.Sleep(552);
+            music.GetComponent<MusicController>().startMusic();
         }
     }
     public void loseLife(Character character)

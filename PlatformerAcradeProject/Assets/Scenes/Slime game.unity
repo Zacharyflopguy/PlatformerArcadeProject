@@ -5146,6 +5146,7 @@ MonoBehaviour:
   point: {fileID: 8300000, guid: b76793e0d9ea82f43b100dffb1e200e1, type: 3}
   crossed: {fileID: 8300000, guid: 6c0195589110fba40b33b9c71658c19b, type: 3}
   timerTick: {fileID: 8300000, guid: daf7011c62674ab40a10495e41224724, type: 3}
+  extraLife: {fileID: 8300000, guid: f65be4dd9d0e67244b82abb0f6d11500, type: 3}
   escape:
     m_Name: Escape
     m_Type: 0
