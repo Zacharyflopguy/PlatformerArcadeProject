@@ -40,6 +40,9 @@ public class MasterControl : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public Canvas canvas;
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI HighScoreText;
+    private LeaderboardManager leaderboard;
+    private List<LeaderboardEntry> highScores;
     
     private void Awake()
     {
@@ -69,6 +72,8 @@ public class MasterControl : MonoBehaviour
         lives = 3;
         score = 0;
         materials = 5;
+        leaderboard = new LeaderboardManager();
+        highScores = leaderboard.GetLeaderboardEntries();
     }
 
     // Update is called once per frame
@@ -99,7 +104,8 @@ public class MasterControl : MonoBehaviour
         
         StageText.text = "Stage: " + realStage;
         scoreText.text = "Score: " + score;
-        
+        HighScoreText.text = "High Score: " + highScores[0].score;
+
         //Timer Logic
         timer -= Time.deltaTime;
         if(timer <= 0)

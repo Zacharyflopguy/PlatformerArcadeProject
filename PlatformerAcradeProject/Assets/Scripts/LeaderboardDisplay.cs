@@ -259,7 +259,7 @@ public class LeaderboardDisplay : MonoBehaviour
             {
                 NavigateCharacter(1);
             }
-            charChangeCooldown = 30;
+            charChangeCooldown = 100;
         }
         else
         {
