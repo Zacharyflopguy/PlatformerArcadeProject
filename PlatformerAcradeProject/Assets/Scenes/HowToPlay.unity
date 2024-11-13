@@ -342,14 +342,6 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 1fb40324-a133-4df9-a9ab-0f73573789ab
-      m_Path: <Gamepad>/dpad/up
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Up
-      m_Flags: 0
-    - m_Name: 
       m_Id: 054c3d61-3848-40cf-a7a7-7bed233ef9cb
       m_Path: <Keyboard>/upArrow
       m_Interactions: 
@@ -367,14 +359,6 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 4c111e43-1451-4c8f-8a57-6be133e3a958
-      m_Path: <Gamepad>/dpad/down
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Down
-      m_Flags: 0
-    - m_Name: 
       m_Id: 2075ece7-dc44-4892-ab5c-a91221724447
       m_Path: <Keyboard>/downArrow
       m_Interactions: 
@@ -391,14 +375,6 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 3c9664d1-7174-4f12-bd91-a812f275b6ee
-      m_Path: <Gamepad>/start
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Select
-      m_Flags: 0
     - m_Name: 
       m_Id: 964546e5-0dc8-404c-879e-4ab2240cdd53
       m_Path: <Keyboard>/enter

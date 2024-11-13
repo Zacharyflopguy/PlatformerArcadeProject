@@ -4,15 +4,15 @@ Extra Lives at 30,000 points and every 70,000 after
 
 Controls:
 	Universal:
-		Start/Select to return to main menu
+		esc to return to main menu
 	Menus:
-		Left stick to navigate
-		X to confirm
+		Up and Down arrows to navigate
+		Enter to confirm
 	Builder:
-		Left stick to move
-		X to jump
-		Right trigger to place platform
+		A/D to move
+		W to jump
+		Left click to place platform
 	Slime:
-		Left stick to aim jump
-		X to lock in
-		Press X again to jump
+		Use mouse to aim jump
+		Left click to lock in
+		Left click again to jump

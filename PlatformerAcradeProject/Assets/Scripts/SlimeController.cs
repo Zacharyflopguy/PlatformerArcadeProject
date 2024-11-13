@@ -45,7 +45,7 @@ public class SlimeController : Character
         bool jumpInput = jump.ReadValue<float>() == 1;
         if (dirLock == false)
         {
-            jumpDir = new Vector2(x.ReadValue<float>(), y.ReadValue<float>());
+            jumpDir = new Vector2(x.ReadValue<float>() - Screen.width/2, y.ReadValue<float>() - Screen.height/2);
             jumpDir.Normalize();
             cross.transform.position = new Vector2(transform.position.x, transform.position.y) + jumpDir;
         }
