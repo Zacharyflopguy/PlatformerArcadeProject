@@ -2695,14 +2695,6 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 95648b0a-5e39-4d1c-907f-b70f03b35304
-      m_Path: <Mouse>/position/x
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: X
-      m_Flags: 0
-    - m_Name: 
       m_Id: 2ce73f1b-93b7-42d3-95c1-3ba13e7b7b7b
       m_Path: <Gamepad>/leftStick/x
       m_Interactions: 
@@ -2719,14 +2711,6 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 19cf46d9-7bb4-4815-afad-6b61be6d5d55
-      m_Path: <Mouse>/position/y
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Y
-      m_Flags: 0
     - m_Name: 
       m_Id: 4809ec25-6258-47f4-9424-cced3f2cb02f
       m_Path: <Gamepad>/leftStick/y

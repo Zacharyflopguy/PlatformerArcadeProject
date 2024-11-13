@@ -920,7 +920,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press START to play again
+  m_text: Press A to play again
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b49a659f61eb10e478ee401417fd8a6f, type: 2}
   m_sharedMaterial: {fileID: 4863014926611495195, guid: b49a659f61eb10e478ee401417fd8a6f, type: 2}
@@ -3797,7 +3797,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter Intitials with Dpad; Press START to confirm character
+  m_text: Enter Intitials with Left Stick; Press A to confirm character
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b49a659f61eb10e478ee401417fd8a6f, type: 2}
   m_sharedMaterial: {fileID: 4863014926611495195, guid: b49a659f61eb10e478ee401417fd8a6f, type: 2}

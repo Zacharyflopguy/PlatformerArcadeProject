@@ -1290,7 +1290,7 @@ MonoBehaviour:
   Selected: {fileID: 956504885, guid: 7a9fdcd70c15dce4ea4c09960539502f, type: 3}
   Unselected: {fileID: 1691751817, guid: 7a9fdcd70c15dce4ea4c09960539502f, type: 3}
   image: {fileID: 1618757155}
-  action: Exit
+  action: Quit
 --- !u!114 &1618757155
 MonoBehaviour:
   m_ObjectHideFlags: 0
