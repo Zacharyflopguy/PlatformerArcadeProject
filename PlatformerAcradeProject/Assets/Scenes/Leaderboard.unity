@@ -2008,14 +2008,6 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 767c73df-9258-45ff-8459-695011fc23fc
-      m_Path: <Keyboard>/enter
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Submit
-      m_Flags: 0
-    - m_Name: 
       m_Id: 7b7b26b1-6ce0-416a-b44c-3055ae3b1868
       m_Path: <Gamepad>/buttonSouth
       m_Interactions: 
@@ -2033,14 +2025,6 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: c3d5adbc-3368-4dea-9630-b0f9b63d2c48
-      m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Char Up
-      m_Flags: 0
-    - m_Name: 
       m_Id: 891c8e30-698d-47a7-8007-8db7b21b9349
       m_Path: <Gamepad>/leftStick/up
       m_Interactions: 
@@ -2057,14 +2041,6 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 4f3436fe-0ae2-4fda-94af-ede0ed3ffaf1
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Char Down
-      m_Flags: 0
     - m_Name: 
       m_Id: 5ec1151a-6965-45a0-95ed-871c9f04dd55
       m_Path: <Gamepad>/leftStick/down

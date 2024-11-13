@@ -1378,14 +1378,6 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Up
       m_Flags: 0
-    - m_Name: 
-      m_Id: 054c3d61-3848-40cf-a7a7-7bed233ef9cb
-      m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Up
-      m_Flags: 0
     m_Flags: 0
   downAction:
     m_Name: Down
@@ -1403,14 +1395,6 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Down
       m_Flags: 0
-    - m_Name: 
-      m_Id: 2075ece7-dc44-4892-ab5c-a91221724447
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Down
-      m_Flags: 0
     m_Flags: 0
   selectAction:
     m_Name: Select
@@ -1423,14 +1407,6 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 3c9664d1-7174-4f12-bd91-a812f275b6ee
       m_Path: <Gamepad>/buttonSouth
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Select
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 964546e5-0dc8-404c-879e-4ab2240cdd53
-      m_Path: <Keyboard>/enter
       m_Interactions: 
       m_Processors: 
       m_Groups: 
