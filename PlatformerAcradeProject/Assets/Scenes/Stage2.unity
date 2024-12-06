@@ -470,14 +470,6 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: ff546cc1-74dc-4221-9a78-4c0f9c9aac65
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Jump
-      m_Flags: 0
-    - m_Name: 
       m_Id: 94aa6021-9ba8-41e1-adff-df06d582fb9e
       m_Path: <Gamepad>/buttonSouth
       m_Interactions: 
@@ -999,30 +991,6 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: 1D Axis
-      m_Id: a03b1d0f-cb94-40f6-9165-6660d2a9cd87
-      m_Path: 1DAxis
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move X
-      m_Flags: 4
-    - m_Name: negative
-      m_Id: 9d4d6c6f-2108-4e55-b32a-0a85d7b76216
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move X
-      m_Flags: 8
-    - m_Name: positive
-      m_Id: c9235791-7fc0-444d-8ee6-0387a3019871
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move X
-      m_Flags: 8
     - m_Name: 
       m_Id: e09784ac-e621-4f7d-b53b-00fd3b658a3a
       m_Path: <Gamepad>/leftStick/x
@@ -1048,14 +1016,6 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Build
       m_Flags: 0
-    - m_Name: 
-      m_Id: 9ddd90dc-38ab-4ada-91c2-18eba620a8bd
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Build
-      m_Flags: 0
     m_Flags: 0
   jump:
     m_Name: Jump
@@ -1065,14 +1025,6 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 37eea3d3-68bf-409e-a026-a71c04962b2b
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Jump
-      m_Flags: 0
     - m_Name: 
       m_Id: 5d3e8631-04fb-49de-9abe-22372bb85a43
       m_Path: <Gamepad>/buttonSouth

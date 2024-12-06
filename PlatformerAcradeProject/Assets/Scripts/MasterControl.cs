@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Threading;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -104,11 +105,11 @@ public class MasterControl : MonoBehaviour
 
         //Timer Logic
         timer -= Time.deltaTime;
-        if(timer <= 0)
+        if(timer <= 0 && !(SceneManager.GetActiveScene().name == "Leaderoard" || SceneManager.GetActiveScene().name == "Main Menu" ||  SceneManager.GetActiveScene().name == "How To Play"))
         {
             loseLife(true);
         }
-        if (timer <= 100.0f)
+        if (timer <= 100.0f && !(SceneManager.GetActiveScene().name == "Leaderoard" || SceneManager.GetActiveScene().name == "Main Menu" || SceneManager.GetActiveScene().name == "How To Play"))
         {
             if (((int)timer) < lastTime)
             {

@@ -349,14 +349,6 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Up
       m_Flags: 0
-    - m_Name: 
-      m_Id: 054c3d61-3848-40cf-a7a7-7bed233ef9cb
-      m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Up
-      m_Flags: 0
     m_Flags: 0
   downAction:
     m_Name: Down
@@ -374,14 +366,6 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Down
       m_Flags: 0
-    - m_Name: 
-      m_Id: 2075ece7-dc44-4892-ab5c-a91221724447
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Down
-      m_Flags: 0
     m_Flags: 0
   selectAction:
     m_Name: Select
@@ -393,15 +377,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 3c9664d1-7174-4f12-bd91-a812f275b6ee
-      m_Path: <Gamepad>/start
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Select
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 964546e5-0dc8-404c-879e-4ab2240cdd53
-      m_Path: <Keyboard>/enter
+      m_Path: <Gamepad>/buttonSouth
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -459,7 +435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -213}
+  m_AnchoredPosition: {x: 0, y: -360.57}
   m_SizeDelta: {x: 312.6687, y: 312.6687}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &906068490
@@ -625,7 +601,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015497, y: 0.6156}
+  m_AnchoredPosition: {x: 0.000015497, y: -0.0000069737}
   m_SizeDelta: {x: 246.1956, y: 59.8499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1105992499
@@ -713,7 +689,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -0.000091552734, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -761,8 +737,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 109}
-  m_SizeDelta: {x: 1135.084, y: 283.771}
+  m_AnchoredPosition: {x: -1.181, y: 153.87}
+  m_SizeDelta: {x: 1675.882, y: 562.436}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1257638898
 MonoBehaviour:
@@ -786,9 +762,23 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'How To Play:
 
-    Give Up
 
-'
+    Left Stick to move the builder. Press A to Jump. Right
+    Trigger places platforms.
+
+
+    Use Left stick to aim the slime''s jump. Press
+    A to lock in your direction. Press A again to jump. The farther the crosshair
+    is, the further you will jump.
+
+
+    Excess materials, fruits, and clearing stages
+    quickly are worth bonus points. Slime covered fruits will destory the builder.
+    Fruits not covered by slime will be destroyed by the slime.
+
+
+    Extra lives
+    at 30,000 points and every 70,000 afterwards'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b49a659f61eb10e478ee401417fd8a6f, type: 2}
   m_sharedMaterial: {fileID: 4863014926611495195, guid: b49a659f61eb10e478ee401417fd8a6f, type: 2}
@@ -815,7 +805,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 36.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -851,7 +841,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -68.74893}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

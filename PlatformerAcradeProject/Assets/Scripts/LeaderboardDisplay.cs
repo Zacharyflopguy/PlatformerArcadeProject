@@ -242,7 +242,7 @@ public class LeaderboardDisplay : MonoBehaviour
             if (submitAction.ReadValue<float>() == 1)
             {
                 ConfirmCharacter();
-                characterConfirmCooldown = 100;
+                characterConfirmCooldown = 25;
             }
         }
         else
@@ -251,15 +251,15 @@ public class LeaderboardDisplay : MonoBehaviour
         }
         if (charChangeCooldown == 0)
         {
-            if (charUpAction.ReadValue<float>() == 1)
+            if (charUpAction.ReadValue<float>() > 0)
             {
                 NavigateCharacter(-1);
             }
-            if (charDownAction.ReadValue<float>() == 1)
+            if (charDownAction.ReadValue<float>() > 0)
             {
                 NavigateCharacter(1);
             }
-            charChangeCooldown = 100;
+            charChangeCooldown = 25;
         }
         else
         {
