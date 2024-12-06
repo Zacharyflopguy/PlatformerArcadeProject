@@ -242,7 +242,7 @@ public class LeaderboardDisplay : MonoBehaviour
             if (submitAction.ReadValue<float>() == 1)
             {
                 ConfirmCharacter();
-                characterConfirmCooldown = 100;
+                characterConfirmCooldown = 25;
             }
         }
         else
@@ -259,7 +259,7 @@ public class LeaderboardDisplay : MonoBehaviour
             {
                 NavigateCharacter(1);
             }
-            charChangeCooldown = 100;
+            charChangeCooldown = 25;
         }
         else
         {
