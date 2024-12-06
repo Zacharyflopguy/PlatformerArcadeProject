@@ -235,7 +235,7 @@ public class LeaderboardDisplay : MonoBehaviour
             yield return null;
         }
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (characterConfirmCooldown == 0)
         {
